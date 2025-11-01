@@ -1,15 +1,6 @@
 # Symphony Shop
 
-This is the initial state of an e-commerce website built with the below technologies
-
-![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js&logoColor=white)
-![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Zustand](https://img.shields.io/badge/Zustand-4.5-orange?style=for-the-badge)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-FF0055?style=for-the-badge&logo=framer&logoColor=white)
-![Vitest](https://img.shields.io/badge/Vitest-2.0-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
-![Zod](https://img.shields.io/badge/Zod-3.23-3E67B1?style=for-the-badge)
+This is the initial state of an e-commerce website. If you like it make sure to check out the console and also write "Pass" anywhere on the page 🎊
 
 ## Quick Start
 
@@ -43,14 +34,19 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## Tech Stack
 
-- **Next.js 16** - React framework with App Router & Server Components
-- **TypeScript** - Type safety
-- **Tailwind CSS v4** - Styling
-- **Zustand** - Cart state management
-- **Zod** - Schema validation
-- **React Hook Form** - Form handling
-- **Framer Motion** - Animations
-- **shadcn/ui** - UI components
+| Technology | Purpose |
+|------------|---------|
+| ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js&logoColor=white) | React framework with App Router for server-side rendering, static generation, and file-based routing |
+| ![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black) | Component-based UI library for building interactive user interfaces |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat&logo=typescript&logoColor=white) | Type safety and enhanced developer experience with static type checking |
+| ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=flat&logo=tailwind-css&logoColor=white) | Utility-first CSS framework for rapid UI development and responsive design |
+| ![Zustand](https://img.shields.io/badge/Zustand-5.0-orange?style=flat) | Lightweight state management for shopping cart with localStorage persistence |
+| ![Zod](https://img.shields.io/badge/Zod-3.25-3E67B1?style=flat) | Schema validation for API responses and form inputs with TypeScript inference |
+| ![React Hook Form](https://img.shields.io/badge/React_Hook_Form-7.54-EC5990?style=flat&logo=reacthookform&logoColor=white) | Performant form handling with built-in validation and error management |
+| ![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-FF0055?style=flat&logo=framer&logoColor=white) | Animation library for smooth transitions, hover effects, and page animations |
+| ![shadcn/ui](https://img.shields.io/badge/shadcn/ui-latest-000000?style=flat) | Accessible component library built on Radix UI primitives with customizable styling |
+| ![Vitest](https://img.shields.io/badge/Vitest-2.1-6E9F18?style=flat&logo=vitest&logoColor=white) | Fast unit testing framework with native TypeScript support and React Testing Library integration |
+| ![Vercel Analytics](https://img.shields.io/badge/Vercel_Analytics-1.5-000000?style=flat&logo=vercel&logoColor=white) | Real-time web analytics for tracking page views and performance metrics |
 
 ## Project Structure
 
