@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Playfair_Display, Inter, Great_Vibes } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 import { Header } from "@/components/header"
 import { Toaster } from "@/components/ui/sonner"
 import { EasterEggs } from "@/components/easter-eggs"
@@ -58,6 +59,7 @@ export default function RootLayout({
           {children}
         </div>
         <Toaster position="top-right" duration={1000} />
+        <Analytics />
       </body>
     </html>
   )
