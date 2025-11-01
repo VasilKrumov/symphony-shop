@@ -1,6 +1,15 @@
 # Symphony Shop
 
-Thank you for considering me for the role of Senior Frontend Engineer. Below is the solution I came up with, I hope you like it. Make sure if you do to write "Pass" anywhere on the page 🎊
+This is the initial state of an e-commerce website built with the below technologies
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Zustand](https://img.shields.io/badge/Zustand-4.5-orange?style=for-the-badge)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-FF0055?style=for-the-badge&logo=framer&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-2.0-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
+![Zod](https://img.shields.io/badge/Zod-3.23-3E67B1?style=for-the-badge)
 
 ## Quick Start
 
