@@ -31,12 +31,18 @@ export function SearchBar({ autoSearch = false }: SearchBarProps) {
   )
 
   useEffect(() => {
-    if (autoSearch && debouncedQuery.trim()) {
-      router.push(`/products?q=${encodeURIComponent(debouncedQuery)}`)
-    } else if (autoSearch && !debouncedQuery.trim() && searchParams.get("q")) {
+    if (!autoSearch) return
+
+    if (debouncedQuery.trim()) {
+      const currentQuery = searchParams.get("q")
+      if (currentQuery !== debouncedQuery) {
+        router.push(`/products?q=${encodeURIComponent(debouncedQuery)}`)
+      }
+    } else if (searchParams.get("q")) {
       router.push("/products")
     }
-  }, [debouncedQuery, autoSearch, router, searchParams])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedQuery, autoSearch, router])
 
   return (
     <form onSubmit={handleSearch} className="mx-auto w-full max-w-2xl">

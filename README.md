@@ -77,6 +77,7 @@ lib/
 - No user authentication
 - No payment processing
 - Cart not synced across devices
+- Discount badges only show for discounts >= 1% (in my opinion there is no point to them if they are 0%)
 
 ## Future Improvements
 

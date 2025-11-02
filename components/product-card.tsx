@@ -42,7 +42,7 @@ export function ProductCard({ product }: ProductCardProps) {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority={false}
             />
-            {product.discountPercentage && (
+            {product.discountPercentage && product.discountPercentage >= 1 && (
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -74,7 +74,7 @@ export function ProductCard({ product }: ProductCardProps) {
               <div className="flex items-center justify-between pt-2">
                 <div className="space-y-1">
                   <p className="text-foreground text-lg font-semibold">${product.price.toFixed(2)}</p>
-                  {product.discountPercentage && (
+                  {product.discountPercentage && product.discountPercentage >= 1 && (
                     <p className="text-muted-foreground text-xs line-through">
                       ${(product.price / (1 - product.discountPercentage / 100)).toFixed(2)}
                     </p>

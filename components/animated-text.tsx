@@ -26,7 +26,8 @@ export function AnimatedText({ text, className = "" }: AnimatedTextProps) {
     visible: {
       y: 0,
       transition: {
-        duration: 0,
+        duration: 0.4,
+        ease: [0.33, 1, 0.68, 1],
       },
     },
     hover: {

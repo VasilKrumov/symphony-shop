@@ -68,7 +68,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
             <div className="flex items-baseline gap-3">
               <p className="text-3xl font-semibold">${product.price.toFixed(2)}</p>
-              {product.discountPercentage && product.discountPercentage > 0 && (
+              {product.discountPercentage && product.discountPercentage >= 1 && (
                 <Badge variant="destructive">{product.discountPercentage}% off</Badge>
               )}
             </div>

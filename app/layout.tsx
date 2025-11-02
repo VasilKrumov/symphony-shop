@@ -58,7 +58,7 @@ export default function RootLayout({
         <div id="main-content" className="animate-page-enter">
           {children}
         </div>
-        <Toaster position="top-right" duration={1000} />
+        <Toaster position="top-right" duration={1000} closeButton richColors />
         <Analytics />
       </body>
     </html>

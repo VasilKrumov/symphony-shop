@@ -3,18 +3,16 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ShoppingCart, Menu, X, Search } from "lucide-react"
+import { ShoppingCart, Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useCartStore } from "@/lib/store/cart-store"
 import { Button } from "@/components/ui/button"
 import { CartDrawer } from "./cart-drawer"
-import { SearchDialog } from "./search-dialog"
 import { AnimatedText } from "./animated-text"
 
 export function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const totalItems = useCartStore((state) => state.getTotalItems())
 
@@ -72,18 +70,6 @@ export function Header() {
             </div>
 
             <div className="flex items-center gap-2">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setIsSearchOpen(true)}
-                  className="focus:ring-ring focus:ring-2 focus:ring-offset-2 focus:outline-none"
-                  aria-label="Search products"
-                >
-                  <Search className="h-6 w-6" aria-hidden="true" />
-                </Button>
-              </motion.div>
-
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button
                   variant="ghost"
@@ -167,7 +153,6 @@ export function Header() {
       </header>
 
       <CartDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
-      <SearchDialog open={isSearchOpen} onOpenChange={setIsSearchOpen} />
     </>
   )
 }
