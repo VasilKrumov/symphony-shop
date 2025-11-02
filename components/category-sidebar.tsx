@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { useSearchParams, useRouter } from "next/navigation"
 import { ChevronDown } from "lucide-react"
@@ -17,17 +17,6 @@ export function CategorySidebar({ categories }: CategorySidebarProps) {
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(true)
   const [isPriceOpen, setIsPriceOpen] = useState(true)
   const [selectedPriceRanges, setSelectedPriceRanges] = useState<string[]>([])
-
-  const scrollToProducts = () => {
-    setTimeout(() => {
-      const productsSection = document.querySelector('[aria-label="Products"]')
-      if (productsSection) {
-        const yOffset = -100
-        const y = productsSection.getBoundingClientRect().top + window.pageYOffset + yOffset
-        window.scrollTo({ top: y, behavior: "smooth" })
-      }
-    }, 100)
-  }
 
   const priceRanges = [
     { label: "Under $50", max: 50, value: "0-50" },
@@ -51,7 +40,6 @@ export function CategorySidebar({ categories }: CategorySidebarProps) {
     }
 
     router.push(`/products?${params.toString()}`)
-    scrollToProducts()
   }
 
   return (
@@ -93,7 +81,6 @@ export function CategorySidebar({ categories }: CategorySidebarProps) {
                   <div className="mt-4 space-y-2">
                     <Link
                       href="/products"
-                      onClick={scrollToProducts}
                       className={`block rounded-md px-3 py-2 text-sm transition-all duration-300 ${
                         !activeCategory
                           ? "bg-accent text-accent-foreground scale-100 font-medium"
@@ -107,7 +94,6 @@ export function CategorySidebar({ categories }: CategorySidebarProps) {
                       <Link
                         key={category}
                         href={`/products?category=${encodeURIComponent(category)}`}
-                        onClick={scrollToProducts}
                         className={`block rounded-md px-3 py-2 text-sm capitalize transition-all duration-300 ${
                           activeCategory === category
                             ? "bg-accent text-accent-foreground scale-100 font-medium shadow-sm"

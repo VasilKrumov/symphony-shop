@@ -226,6 +226,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               onClick={() => {
                 clearCart()
                 setShowClearDialog(false)
+                onClose()
               }}
             >
               Clear cart
