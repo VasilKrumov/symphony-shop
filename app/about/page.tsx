@@ -1,4 +1,7 @@
 import type { Metadata } from "next"
+import { CheckIcon } from "@/components/icons/check-icon"
+import { ClockIcon } from "@/components/icons/clock-icon"
+import { ThumbsUpIcon } from "@/components/icons/thumbs-up-icon"
 
 export const metadata: Metadata = {
   title: "About Us - Symphony's Shop",
@@ -45,9 +48,7 @@ export default function AboutPage() {
         <section className="grid gap-8 pt-8 md:grid-cols-3" aria-label="Our values">
           <div className="space-y-3">
             <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-full">
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
+              <CheckIcon className="h-6 w-6" />
             </div>
             <h3 className="font-serif text-xl font-semibold">Quality First</h3>
             <p className="text-muted-foreground leading-relaxed">
@@ -56,14 +57,7 @@ export default function AboutPage() {
           </div>
           <div className="space-y-3">
             <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-full">
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+              <ClockIcon className="h-6 w-6" />
             </div>
             <h3 className="font-serif text-xl font-semibold">Fast Delivery</h3>
             <p className="text-muted-foreground leading-relaxed">
@@ -72,14 +66,7 @@ export default function AboutPage() {
           </div>
           <div className="space-y-3">
             <div className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-full">
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-                />
-              </svg>
+              <ThumbsUpIcon className="h-6 w-6" />
             </div>
             <h3 className="font-serif text-xl font-semibold">Customer Care</h3>
             <p className="text-muted-foreground leading-relaxed">

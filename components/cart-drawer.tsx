@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { X, ShoppingCart } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useCartStore } from "@/lib/store/cart-store"
@@ -126,11 +127,30 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       >
                         <Card className="border-border/50">
                           <CardContent className="p-4">
-                            <div className="flex gap-4">
-                              <div className="flex-1 space-y-2">
-                                <h3 className="line-clamp-2 text-sm font-medium">{item.title}</h3>
+                            <div className="flex gap-3">
+                              <Link
+                                href={`/products/${item.id}`}
+                                onClick={onClose}
+                                className="bg-muted relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md hover:opacity-80 transition-opacity"
+                              >
+                                <Image
+                                  src={item.thumbnail}
+                                  alt={item.title}
+                                  fill
+                                  className="object-cover"
+                                  sizes="96px"
+                                />
+                              </Link>
+                              <div className="flex-1 space-y-1.5">
+                                <Link
+                                  href={`/products/${item.id}`}
+                                  onClick={onClose}
+                                  className="hover:text-primary transition-colors"
+                                >
+                                  <h3 className="line-clamp-2 text-sm font-medium">{item.title}</h3>
+                                </Link>
                                 <p className="text-muted-foreground text-sm">${item.price.toFixed(2)}</p>
-                                <div className="flex items-center gap-2 pt-2">
+                                <div className="flex items-center gap-2 pt-1">
                                   <motion.button
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}

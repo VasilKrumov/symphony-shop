@@ -8,6 +8,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import type { Product } from "@/lib/schemas/product"
 import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import { useCartStore } from "@/lib/store/cart-store"
 import { ShoppingCart } from "lucide-react"
 import { StarRating } from "@/components/star-rating"
@@ -17,7 +18,6 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
   const [isAdding, setIsAdding] = useState(false)
   const addItem = useCartStore((state) => state.addItem)
 
@@ -31,55 +31,37 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={`/products/${product.id}`}>
-      <motion.div
-        whileHover={{ y: -4 }}
-        transition={{ duration: 0.3 }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.3 }}>
         <Card className="group border-border/40 hover:border-border/80 overflow-hidden hover:shadow-lg">
           <div className="bg-muted relative h-80 w-full overflow-hidden">
-            <motion.div
-              animate={{ scale: isHovered ? 1.08 : 1 }}
-              transition={{ duration: 0.5 }}
-              className="h-full w-full"
-            >
-              <Image
-                src={product.thumbnail || "/placeholder.svg"}
-                alt={product.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                priority={false}
-              />
-            </motion.div>
+            <Image
+              src={product.thumbnail || "/placeholder.svg"}
+              alt={product.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={false}
+            />
             {product.discountPercentage && (
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                className="bg-accent text-accent-foreground absolute top-3 right-3 rounded px-2 py-1 text-xs font-semibold"
+                className="bg-accent text-accent-foreground absolute top-3 left-3 rounded px-2 py-1 text-xs font-semibold"
               >
                 -{product.discountPercentage.toFixed(0)}%
               </motion.div>
             )}
 
-            <motion.button
-              initial={{ y: "100%", opacity: 0 }}
-              animate={{
-                y: isHovered ? 0 : "100%",
-                opacity: isHovered ? 1 : 0,
-              }}
-              transition={{ duration: 0.3 }}
+            <Button
+              size="icon"
               onClick={handleAddToCart}
               disabled={isAdding}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 absolute right-0 bottom-0 left-0 flex cursor-pointer items-center justify-center gap-2 py-2 font-medium"
+              className="bg-foreground text-background hover:bg-foreground/90 absolute top-3 right-3 h-9 w-9 rounded-full shadow-md hover:scale-110 transition-transform"
               aria-label={`Add ${product.title} to cart`}
-              whileTap={{ scale: 0.98 }}
             >
               <ShoppingCart size={18} />
-              {isAdding ? "Adding..." : "Add to Cart"}
-            </motion.button>
+            </Button>
           </div>
 
           <CardContent className="p-4">
