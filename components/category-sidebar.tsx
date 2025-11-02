@@ -13,7 +13,8 @@ export function CategorySidebar({ categories }: CategorySidebarProps) {
   const searchParams = useSearchParams()
   const router = useRouter()
   const activeCategory = searchParams.get("category")
-  const [isOpen, setIsOpen] = useState(true)
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(true)
+  const [isPriceOpen, setIsPriceOpen] = useState(true)
   const [selectedPriceRanges, setSelectedPriceRanges] = useState<string[]>([])
 
   const priceRanges = [
@@ -45,19 +46,19 @@ export function CategorySidebar({ categories }: CategorySidebarProps) {
       <div className="sticky top-20 space-y-6">
         <div className="border-border bg-card rounded-lg border p-6 transition-all duration-300 hover:shadow-md">
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
             className="flex w-full items-center justify-between text-left transition-all duration-300"
-            aria-expanded={isOpen}
+            aria-expanded={isCategoriesOpen}
           >
             <h3 className="font-serif text-lg font-medium">Categories</h3>
             <ChevronDown
               className="h-5 w-5 transition-transform duration-500"
-              style={{ transform: isOpen ? "rotate(0deg)" : "rotate(-90deg)" }}
+              style={{ transform: isCategoriesOpen ? "rotate(0deg)" : "rotate(-90deg)" }}
             />
           </button>
 
           <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${isCategoriesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
           >
             <div className="mt-4 space-y-2">
               <Link
@@ -89,23 +90,38 @@ export function CategorySidebar({ categories }: CategorySidebarProps) {
         </div>
 
         <div className="border-border bg-card rounded-lg border p-6 transition-all duration-300 hover:shadow-md">
-          <h3 className="mb-4 font-serif text-lg font-medium">Price Range</h3>
-          <div className="space-y-2">
-            {priceRanges.map((range) => (
-              <label
-                key={range.value}
-                className="flex cursor-pointer items-center gap-2 transition-all duration-300 hover:translate-x-1"
-              >
-                <input
-                  type="checkbox"
-                  className="border-border cursor-pointer rounded transition-all duration-300"
-                  checked={selectedPriceRanges.includes(range.value)}
-                  onChange={() => handlePriceChange(range.value)}
-                  aria-label={`Filter by ${range.label}`}
-                />
-                <span className="text-foreground text-sm">{range.label}</span>
-              </label>
-            ))}
+          <button
+            onClick={() => setIsPriceOpen(!isPriceOpen)}
+            className="flex w-full items-center justify-between text-left transition-all duration-300"
+            aria-expanded={isPriceOpen}
+          >
+            <h3 className="font-serif text-lg font-medium">Price Range</h3>
+            <ChevronDown
+              className="h-5 w-5 transition-transform duration-500"
+              style={{ transform: isPriceOpen ? "rotate(0deg)" : "rotate(-90deg)" }}
+            />
+          </button>
+
+          <div
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${isPriceOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+          >
+            <div className="mt-4 space-y-2">
+              {priceRanges.map((range) => (
+                <label
+                  key={range.value}
+                  className="flex cursor-pointer items-center gap-2 transition-all duration-300 hover:translate-x-1"
+                >
+                  <input
+                    type="checkbox"
+                    className="border-border cursor-pointer rounded transition-all duration-300"
+                    checked={selectedPriceRanges.includes(range.value)}
+                    onChange={() => handlePriceChange(range.value)}
+                    aria-label={`Filter by ${range.label}`}
+                  />
+                  <span className="text-foreground text-sm">{range.label}</span>
+                </label>
+              ))}
+            </div>
           </div>
         </div>
       </div>
